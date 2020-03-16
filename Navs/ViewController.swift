@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         shadow.shadowOffset = CGSize(width: 2, height: 2)
         
         let attributes = [NSAttributedString.Key.font: titleFont, NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.shadow: shadow]
-        bar.titleTextAttributes = attributes
+        bar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
         
         //MARK: - Navigation Item
         let item = navigationItem
