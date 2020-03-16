@@ -14,7 +14,28 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzF-nP-XVN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.95690070687092976" green="0.99705451726913452" blue="0.40761075523365203" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="tVn-na-8KH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="29"/>
+                                <state key="normal" title="Go Next View">
+                                    <color key="titleColor" red="0.69803921570000005" green="0.86666666670000003" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zzX-qT-cVp" kind="show" id="BTC-zi-WKP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tzF-nP-XVN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4QM-zW-NFC"/>
+                            <constraint firstItem="tzF-nP-XVN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="skt-mB-nyM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tzF-nP-XVN" secondAttribute="trailing" id="ymb-wk-MN1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="k3h-qK-nBo"/>
@@ -22,6 +43,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="864" y="127"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mx0-8R-Z8T">
+            <objects>
+                <viewController id="zzX-qT-cVp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jed-KS-YIW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dbM-G5-TpI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AEy-F1-aRX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yDz-8h-FVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1571" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UIj-I6-mWt">
