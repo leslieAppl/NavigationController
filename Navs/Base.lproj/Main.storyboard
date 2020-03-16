@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="864" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="Mx0-8R-Z8T">
             <objects>
-                <viewController id="zzX-qT-cVp" sceneMemberID="viewController">
+                <viewController id="zzX-qT-cVp" customClass="SecondViewController" customModule="Navs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jed-KS-YIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
