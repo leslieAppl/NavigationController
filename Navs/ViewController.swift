@@ -15,12 +15,17 @@ class ViewController: UIViewController {
     var myDelegate: AppDelegate!
     
     @IBOutlet weak var myToolBar: UIToolbar!
+    @IBOutlet weak var picturePicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //MARK: - Init AppDelegate
         let app = UIApplication.shared  // returns the singleton app instance
         myDelegate = app.delegate as? AppDelegate
+        
+        //MARK: - Picker Delegate
+        picturePicker.dataSource = self
+        picturePicker.delegate = self
         
         //MARK: - Navigation Controller
         let nav = navigationController!
@@ -82,6 +87,27 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "showPicture", sender: self)
     }
     
+    @IBAction func getPictureBtnPressed(_ sender: UIButton) {
+        let selected = picturePicker.selectedRow(inComponent: 0)
+        AppData.selectedPicture = selected
+        
+        performSegue(withIdentifier: "showPicture2", sender: self)
+    }
     
 }
 
+extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    //MARK: - Picker Data Source
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return AppData.pictureList.count
+    }
+    
+    //MARK: - Picker Delegate
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return AppData.pictureList[row]
+    }
+}

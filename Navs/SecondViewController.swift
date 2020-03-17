@@ -14,7 +14,7 @@ class SecondViewController: UIViewController {
     //when working with Navigation Controllers.
     var myDelegate: AppDelegate!
 
-    @IBOutlet weak var RatingSlider: UISlider!
+    @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class SecondViewController: UIViewController {
         
         // Specifically turns off Large Title Display Mode
 //        item.largeTitleDisplayMode = .never
-        item.title = "Rate Picture"
+        item.title = "AppDelegate"
         
         //MARK: - Init Second View Controller
         showRatingPicture()
@@ -51,12 +51,12 @@ class SecondViewController: UIViewController {
         let rating = myDelegate.ratings[selected]
         
         imageView.image = UIImage(named: picture)
-        RatingSlider.value = Float(rating)
+        ratingSlider.value = Float(rating)
     }
     
     @IBAction func changeRatingSwiped(_ sender: UISlider) {
         let value = round(sender.value)
-        RatingSlider.value = value
+        ratingSlider.value = value
         
         let selected = myDelegate.selectedPicture!
         myDelegate.ratings[selected] = Int(value)
