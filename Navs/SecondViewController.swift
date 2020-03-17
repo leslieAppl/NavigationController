@@ -12,12 +12,22 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: - Navigation Controller
+        let nav = navigationController!
 
-        // Specifically turns off Large Title Display Mode
-//        navigationItem.largeTitleDisplayMode = .never
+        //MARK: - Navigation Bar
+        let bar = nav.navigationBar
+        
+        bar.tintColor = #colorLiteral(red: 0, green: 0.7235742211, blue: 0.8151144385, alpha: 1)    // Bar Button Color
+        bar.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        bar.prefersLargeTitles = true   // Show Large Title
+
         
         //MARK: - Navigation Item
         let item = navigationItem
+        
+        // Specifically turns off Large Title Display Mode
+//        item.largeTitleDisplayMode = .never
         item.title = "Second"
 
     }

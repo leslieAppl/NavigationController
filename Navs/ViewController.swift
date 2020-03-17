@@ -10,18 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var myToolBar: UIToolbar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //MARK: - Navigation Controller
         let nav = navigationController!
+        
         nav.hidesBarsOnSwipe = true
         
         //MARK: - Navigation Bar
         let bar = nav.navigationBar
+        
         bar.tintColor = #colorLiteral(red: 0, green: 0.7235742211, blue: 0.8151144385, alpha: 1)    // Bar Button Color
         bar.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        bar.prefersLargeTitles = true   // Show Large Title
+//        bar.prefersLargeTitles = true   // Show Large Title
         
         let titleFont = UIFont(name: "Verdana-Bold", size: 25.0)
         let color = #colorLiteral(red: 0.6212110519, green: 0.8334299922, blue: 0.3770503998, alpha: 1)     // Bar Title Color
@@ -34,9 +38,13 @@ class ViewController: UIViewController {
         
         //MARK: - Navigation Item
         let item = navigationItem
+        
+        // Specifically turns off Large Title Display Mode
+        item.largeTitleDisplayMode = .automatic
         item.title = "Menu"
         
         //MARK: - Bar Button Item
+        
         // Right Bar Button Item
         let imagePortrait = UIImage(named: "buttonplus")
         let imageLandscape = UIImage(named: "buttonpluslandscape")
@@ -49,11 +57,18 @@ class ViewController: UIViewController {
         backButton.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         item.backBarButtonItem = backButton
         
+        //MARK: - UIToolBar
+        configMyToolBar()
+    }
+    
+    func configMyToolBar() {
+        myToolBar.setBackgroundImage(UIImage(named: "backgroundbar"), forToolbarPosition: .bottom, barMetrics: .default)
+        myToolBar.tintColor = UIColor.white
     }
     
     @objc func printMessage() {
         print("Message")
     }
-
+    
 }
 

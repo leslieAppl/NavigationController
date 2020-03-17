@@ -29,16 +29,31 @@
                                     <segue destination="zzX-qT-cVp" kind="show" id="BTC-zi-WKP"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaG-J1-lUg">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RXv-fX-BEZ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" id="L2t-cm-rrb"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="zaG-J1-lUg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3ym-bD-z9j"/>
                             <constraint firstItem="tzF-nP-XVN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4QM-zW-NFC"/>
+                            <constraint firstItem="zaG-J1-lUg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I8w-X0-7e5"/>
+                            <constraint firstItem="zaG-J1-lUg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cd4-Iy-rHJ"/>
                             <constraint firstItem="tzF-nP-XVN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="skt-mB-nyM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tzF-nP-XVN" secondAttribute="trailing" id="ymb-wk-MN1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="k3h-qK-nBo"/>
+                    <connections>
+                        <outlet property="myToolBar" destination="zaG-J1-lUg" id="phR-JL-WfB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
