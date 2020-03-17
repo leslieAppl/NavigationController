@@ -21,13 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //it is the delegate of the UIApplication object created to run the application
         //and therefore it is accessible from anywhere in the code.
     
+    //Declare Properties
     var pictureList: [String]!
     var ratings: [Int]!
     var selectedPicture: Int!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //init data
+        //Init Properties
         pictureList = ["Husky", "Door"]
         ratings = [0, 0]
         selectedPicture = 0
