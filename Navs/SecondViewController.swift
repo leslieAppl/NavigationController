@@ -10,8 +10,19 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    //Using AppDelegate object to store and to share common data
+    //when working with Navigation Controllers.
+    var myDelegate: AppDelegate!
+
+    @IBOutlet weak var RatingSlider: UISlider!
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: - Init AppDelegate
+        let app = UIApplication.shared  // returns the singleton app instance
+        myDelegate = app.delegate as? AppDelegate
+        
         //MARK: - Navigation Controller
         let nav = navigationController!
 
@@ -22,17 +33,35 @@ class SecondViewController: UIViewController {
         bar.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         bar.prefersLargeTitles = true   // Show Large Title
 
-        
         //MARK: - Navigation Item
         let item = navigationItem
         
         // Specifically turns off Large Title Display Mode
 //        item.largeTitleDisplayMode = .never
-        item.title = "Second"
-
+        item.title = "Rate Picture"
+        
+        //MARK: - Init Second View Controller
+        showRatingPicture()
+        
     }
     
-
+    func showRatingPicture() {
+        let selected = myDelegate.selectedPicture!
+        let picture = myDelegate.pictureList[selected].lowercased()
+        let rating = myDelegate.ratings[selected]
+        
+        imageView.image = UIImage(named: picture)
+        RatingSlider.value = Float(rating)
+    }
+    
+    @IBAction func changeRatingSwiped(_ sender: UISlider) {
+        let value = round(sender.value)
+        RatingSlider.value = value
+        
+        let selected = myDelegate.selectedPicture!
+        myDelegate.ratings[selected] = Int(value)
+    }
+    
     /*
     // MARK: - Navigation
 

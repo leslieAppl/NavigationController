@@ -9,11 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    //Using AppDelegate object to store and to share common data
+    //when working with Navigation Controllers.
+    var myDelegate: AppDelegate!
+    
     @IBOutlet weak var myToolBar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: - Init AppDelegate
+        let app = UIApplication.shared  // returns the singleton app instance
+        myDelegate = app.delegate as? AppDelegate
         
         //MARK: - Navigation Controller
         let nav = navigationController!
@@ -69,6 +76,12 @@ class ViewController: UIViewController {
     @objc func printMessage() {
         print("Message")
     }
+    
+    @IBAction func showPictureBtnPressed(_ sender: UIButton) {
+        myDelegate.selectedPicture = sender.tag
+        performSegue(withIdentifier: "showPicture", sender: self)
+    }
+    
     
 }
 

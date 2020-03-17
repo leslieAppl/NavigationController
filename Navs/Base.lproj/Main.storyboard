@@ -22,11 +22,11 @@
                                     <constraint firstAttribute="height" constant="60" id="tVn-na-8KH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="29"/>
-                                <state key="normal" title="Go Next View">
+                                <state key="normal" title="Go Husky">
                                     <color key="titleColor" red="0.69803921570000005" green="0.86666666670000003" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zzX-qT-cVp" kind="show" id="BTC-zi-WKP"/>
+                                    <action selector="showPictureBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DU0-Yi-VN6"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaG-J1-lUg">
@@ -38,13 +38,30 @@
                                     <barButtonItem title="Item" id="L2t-cm-rrb"/>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7s-Tg-sjp">
+                                <rect key="frame" x="0.0" y="156" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.95690070689999995" green="0.99705451730000005" blue="0.40761075520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="zgt-AM-v44"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="29"/>
+                                <state key="normal" title="Go House">
+                                    <color key="titleColor" red="0.69803921570000005" green="0.86666666670000003" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPictureBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf7-9c-3Ke"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="zaG-J1-lUg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3ym-bD-z9j"/>
                             <constraint firstItem="tzF-nP-XVN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4QM-zW-NFC"/>
+                            <constraint firstItem="d7s-Tg-sjp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7Qa-E1-Obp"/>
                             <constraint firstItem="zaG-J1-lUg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I8w-X0-7e5"/>
                             <constraint firstItem="zaG-J1-lUg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cd4-Iy-rHJ"/>
+                            <constraint firstItem="d7s-Tg-sjp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cyI-e9-7Xo"/>
+                            <constraint firstItem="d7s-Tg-sjp" firstAttribute="top" secondItem="tzF-nP-XVN" secondAttribute="bottom" constant="8" id="r0C-Cf-L64"/>
                             <constraint firstItem="tzF-nP-XVN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="skt-mB-nyM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tzF-nP-XVN" secondAttribute="trailing" id="ymb-wk-MN1"/>
                         </constraints>
@@ -53,6 +70,7 @@
                     <navigationItem key="navigationItem" id="k3h-qK-nBo"/>
                     <connections>
                         <outlet property="myToolBar" destination="zaG-J1-lUg" id="phR-JL-WfB"/>
+                        <segue destination="zzX-qT-cVp" kind="show" identifier="showPicture" id="LCA-4g-JPK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -66,14 +84,43 @@
                     <view key="view" contentMode="scaleToFill" id="Jed-KS-YIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="h34-ZQ-To3">
+                                <rect key="frame" x="276" y="121" width="118" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="CVB-w7-jFd"/>
+                                    <constraint firstAttribute="width" constant="114" id="Inu-P6-2WC"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeRatingSwiped:" destination="zzX-qT-cVp" eventType="valueChanged" id="iFM-w1-c25"/>
+                                </connections>
+                            </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uUC-I5-Hop">
+                                <rect key="frame" x="62" y="178" width="330" height="330"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="6LA-wq-Qeb"/>
+                                    <constraint firstAttribute="width" constant="330" id="fJP-Jw-5R7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dbM-G5-TpI" firstAttribute="trailing" secondItem="h34-ZQ-To3" secondAttribute="trailing" constant="22" id="4ju-mt-Ukc"/>
+                            <constraint firstItem="uUC-I5-Hop" firstAttribute="trailing" secondItem="h34-ZQ-To3" secondAttribute="trailing" id="AbY-iC-AK5"/>
+                            <constraint firstItem="h34-ZQ-To3" firstAttribute="top" secondItem="dbM-G5-TpI" secondAttribute="top" constant="33" id="GD0-tB-Txh"/>
+                            <constraint firstItem="uUC-I5-Hop" firstAttribute="top" secondItem="h34-ZQ-To3" secondAttribute="bottom" constant="28" id="vil-6m-z8c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dbM-G5-TpI"/>
                     </view>
                     <navigationItem key="navigationItem" id="AEy-F1-aRX"/>
+                    <connections>
+                        <outlet property="RatingSlider" destination="h34-ZQ-To3" id="ReU-5f-3AF"/>
+                        <outlet property="imageView" destination="uUC-I5-Hop" id="TDB-wf-0SY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDz-8h-FVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1571" y="127"/>
+            <point key="canvasLocation" x="1569.5652173913045" y="126.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UIj-I6-mWt">
@@ -85,6 +132,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Xr-4I-TgU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UYL-eh-mJ3"/>
                     </connections>

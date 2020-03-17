@@ -10,11 +10,28 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    //View controllers managed by a Navigation Controller fulfill a common purpose
+        //and therefore they frequently share common data.
+    //When working with Navigation Controllers,
+        //we should not send information from one view controller to another,
+        //as we did with single view controllers,
+        //but instead create a unique source of data.
+    //The most frequently used object to store common data is the AppDelegate object.
+    //The advantage presented by this object is that
+        //it is the delegate of the UIApplication object created to run the application
+        //and therefore it is accessible from anywhere in the code.
+    
+    var pictureList: [String]!
+    var ratings: [Int]!
+    var selectedPicture: Int!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //init data
+        pictureList = ["Husky", "Door"]
+        ratings = [0, 0]
+        selectedPicture = 0
+        
         return true
     }
 
